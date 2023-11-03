@@ -1,7 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
 
 from .models import Post
+from .forms import PostForm
 
 
 def home(request):
@@ -25,17 +27,41 @@ def post(request, pk):
 def profile(request):
     return render(request, 'base/profile.html')
 
-# def home(request):
-#     return HttpResponse('<h2>home</h2>')
-#
-#
-# def posts(request):
-#     return HttpResponse('<h2>posts</h2>')
-#
-#
-# def post(request):
-#     return HttpResponse('<h2>post</h2>')
-#
-#
-# def profile(request):
-#     return HttpResponse('<h2>profile</h2>')
+
+# CRUD VIEWS
+@login_required(login_url="home")
+def createPost(request):
+    form = PostForm()
+
+    if request.method == 'POST':
+        form = PostForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+        return redirect('posts')
+    context = {'form': form}
+    return render(request, 'base/post_form.html', context)
+
+
+@login_required(login_url="home")
+def updatePost(request, pk):
+    post = Post.objects.get(id=pk)
+    form = PostForm(instance=post)
+
+    if request.method == 'POST':
+        form = PostForm(request.POST, request.FILES, instance=post)
+        if form.is_valid():
+            form.save()
+        return redirect('posts')
+    context = {'form': form}
+    return render(request, 'base/post_form.html', context)
+
+@login_required(login_url="home")
+def deletePost(request, pk):
+    post = Post.objects.get(id=pk)
+
+    if request.method == 'POST':
+        post.delete()
+        return redirect('posts')
+
+    context = {'item': post}
+    return render(request, 'base/delete.html', context)
