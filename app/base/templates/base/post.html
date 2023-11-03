@@ -1,8 +1,14 @@
 {% extends 'base/main.html' %}
-
-
+{% load static %}
 {% block content %}
 
-<h1>Post Page Template</h1>
+<div>
+    <h1>Post Page Template</h1>
+    <img src="{% static 'images/selcan.jpeg' %}">
+    <p>
+        Ben Selcan Atak. Artificial Intelligence alanıyla ilgili projeler yaparak kendimi geliştiriyorum. Hedeflerimden
+        biri yazılım dünyasında adımdan bir izler bırakmaktır.
+    </p>
+</div>
 
 {% endblock content %}

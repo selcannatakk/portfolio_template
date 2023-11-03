@@ -14,10 +14,7 @@
 
 
 	--buttonColor:black;
-
-
 }
-
 
 html, body{
 	padding: 0;
@@ -161,62 +158,6 @@ h6 { font-size: 16px;}
 	box-shadow: -1px 1px 3px -1px rgba(0,0,0,0.75);
 
 }
-
-
-/* DROP DOWN MENU START */
-
-#menu-icon{
-	width: 30px;
-	margin-right:10px;
-	cursor: pointer;
-	display: none;
-}
-
-#close-btn{
-	display: none;
-	cursor: pointer;
-	padding: 10px;
-	margin: 0;
-
-}
-
-
-@media screen and (max-width: 1080px){
-	#navigation{
-		display: none;
-		position: fixed;
-		top: 0;
-		left: 50%;
-		transform: translateX(-50%);
-		border-radius: 0 0 5px 5px;
-		width: 95%;
-		background-color: var(--previewShadow);
-		padding: 0;
-		z-index:998;
-		border: 2px solid var(--borderColor);
-		-webkit-box-shadow: -1px 1px 3px -1px rgba(0,0,0,0.75);
-		-moz-box-shadow: -1px 1px 3px -1px rgba(0,0,0,0.75);
-		box-shadow: -1px 1px 3px -1px rgba(0,0,0,0.75);
-	}
-
-	#navigation li{
-		box-sizing: border-box;
-		padding: 10px;
-		width: 100%;
-		border-top:2px solid var(--borderColor);
-			
-		font-size: 18px;
-		text-align: center;
-		margin:0;
-	}
-
-	#menu-icon{
-		display: block;
-	}
-
-}
-
-/* DROP DOWN MENU END */
 
 
 .left-column{
@@ -405,16 +346,6 @@ h6 { font-size: 16px;}
 	font-size: 14px;
 }
 
-.tag{
-	display:inline-block;
-	color:#fff;
-	background-color: #888;
-	border-radius: 5px;
-	margin: 2px;
-	padding: 2px 5px;
-	font-size: 12px;	
-}
-
 
 #contact-form{
 	display: block;
@@ -458,35 +389,6 @@ h6 { font-size: 16px;}
 	background-color: var(--buttonColor);
 	border:none;
 }
-
-
-/* Login Page (START) */
-
-	#login-page-wrapper{
-		background: #eaeaea;
-		height: 100vh;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-	}
-
-	#login-form-wrapper{
-		width: 400px;
-		background: #fff;
-		padding: 20px;
-		-webkit-box-shadow: -1px 1px 3px -1px rgba(0,0,0,0.75);
-		-moz-box-shadow: -1px 1px 3px -1px rgba(0,0,0,0.75);
-		box-shadow: -1px 1px 3px -1px rgba(0,0,0,0.75);
-	}
-
-	@media screen and (max-width: 400px){
-		#login-form-wrapper{
-			width: 95%;
-		}
-	}
-
-
-/* Login Page (END) */
 
 
 @media screen and (max-width: 1200px){
